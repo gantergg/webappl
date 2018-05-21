@@ -40,10 +40,18 @@ public class Meds {
     @Id
     @Column(name = "MED_ID")
     public Integer getMedId() {
-        return medId
+        return medId;
     }
 
-    public void setMedId(Integer medId)
+    public void setMedId(Integer medId) {
+        this.medId = medId;
+    }
+
+    @Column(name = "NAME", length = 80, nullable = false)
+    public String getName() {
+        return name;
+    }
+
 }
 
 
