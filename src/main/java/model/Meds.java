@@ -7,10 +7,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "MEDS")
+
+
 public class Meds {
 
+    @Id
+    @Column(name = "MED_ID")
     private Integer medId;
+    @Column(name = "NAME", length = 80, nullable = false)
     private String name;
+    @Column(name = "PRICE")
     private Integer price;
 
 
@@ -24,8 +30,7 @@ public class Meds {
 
     }
 
-    @Id
-    @Column(name = "MED_ID")
+
     public Integer getMedId() {
         return medId;
     }
@@ -34,7 +39,7 @@ public class Meds {
         this.medId = medId;
     }
 
-    @Column(name = "NAME", length = 80, nullable = false)
+
     public String getName() {
         return name;
     }
@@ -43,7 +48,7 @@ public class Meds {
         this.name = name;
     }
 
-    @Column(name = "PRICE")
+
     public Integer getPrice() {
         return price;
     }
