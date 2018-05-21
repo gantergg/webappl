@@ -9,11 +9,9 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "MEDS",
-        uniqueConstraints = { @UniqueConstraint(columnNames = { "MEDS_NO" }) })
+@Table(name = "MEDS")
 public class Meds {
 
     private Integer medId;
@@ -29,8 +27,23 @@ public class Meds {
     }
 
     public Meds(Integer medId, String name, String annotation, String provider, String producer, String storage, String units, Integer amount) {
-    
+    this.medId = medId;
+    this.name = name;
+    this.annotation = annotation;
+    this.provider = provider;
+    this.producer = producer;
+    this.storage =  storage;
+    this.units = units;
+    this.amount = amount;
     }
+
+    @Id
+    @Column(name = "MED_ID")
+    public Integer getMedId() {
+        return medId
+    }
+
+    public void setMedId(Integer medId)
 }
 
 
