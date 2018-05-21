@@ -1,13 +1,8 @@
 package model;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,25 +11,17 @@ public class Meds {
 
     private Integer medId;
     private String name;
-    private String annotation;
-    private String provider;
-    private String producer;
-    private String storage;
-    private String units;
-    private Integer amount;
+    private Integer price;
+
 
     public Meds() {
     }
 
-    public Meds(Integer medId, String name, String annotation, String provider, String producer, String storage, String units, Integer amount) {
+    public Meds(Integer medId, String name, Integer price) {
     this.medId = medId;
     this.name = name;
-    this.annotation = annotation;
-    this.provider = provider;
-    this.producer = producer;
-    this.storage =  storage;
-    this.units = units;
-    this.amount = amount;
+    this.price = price;
+
     }
 
     @Id
@@ -52,7 +39,20 @@ public class Meds {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Column(name = "PRICE")
+    public Integer getPrice() {
+        return price;
+    }
+
+    private void setPrice(Integer price) {
+        this.price = price;
+    }
 }
 
 
 
+    
