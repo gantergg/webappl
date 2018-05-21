@@ -13,8 +13,6 @@ public class Meds {
 
     @Id
     @Column(name = "MED_ID")
-
-
     private Integer medId;
     @Column(name = "NAME", length = 80, nullable = false)
     private String name;
