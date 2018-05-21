@@ -13,6 +13,8 @@ public class Meds {
 
     @Id
     @Column(name = "MED_ID")
+
+
     private Integer medId;
     @Column(name = "NAME", length = 80, nullable = false)
     private String name;
@@ -24,9 +26,9 @@ public class Meds {
     }
 
     public Meds(Integer medId, String name, Integer price) {
-    this.medId = medId;
-    this.name = name;
-    this.price = price;
+        this.medId = medId;
+        this.name = name;
+        this.price = price;
 
     }
 
