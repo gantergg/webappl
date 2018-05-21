@@ -1,11 +1,10 @@
 package model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "ORDER")
@@ -13,27 +12,29 @@ import java.util.Date;
 public class Order {
 
     @Id
-    @Column(name = "ORDER_ID")
-    private Integer orderId;
+    @Column(name = "ID")
+    private Integer id;
     @Column(name = "CLIENT", nullable = false)
     private String client;
     @Column(name = "DATE")
     private Date date;
     @Column(name = "Adress")
     private String adress;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ORDER")
+    private Set<OrderLine> orderLines = new HashSet<OrderLine>();
 
     public Order() {
     }
 
     public Order(Integer orderId, String client, Date date, String adress) {
-        this.orderId = orderId;
+        this.id = orderId;
         this.client = client;
         this.date = date;
         this.adress = adress;
     }
 
     public Integer getOrderId() {
-        return orderId;
+        return id;
     }
 
     public String getClient() {
@@ -49,7 +50,7 @@ public class Order {
     }
 
     public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
+        this.id = orderId;
     }
 
     public void setClient(String client) {
@@ -62,6 +63,14 @@ public class Order {
 
     public void setAdress(String adress) {
         this.adress = adress;
+    }
+
+    public Set<OrderLine> getOrderLines() {
+        return orderLines;
+    }
+
+    public void setOrderLines(Set<OrderLine> orderLines) {
+        this.orderLines = orderLines;
     }
 }
 
