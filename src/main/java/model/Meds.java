@@ -5,11 +5,11 @@ import javax.persistence.*;
 @Entity
 @Table(name = "MEDS")
 
-
 public class Meds {
 
     @Id
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "NAME", length = 80, nullable = false)
     private String name;

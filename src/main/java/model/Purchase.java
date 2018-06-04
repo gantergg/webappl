@@ -7,12 +7,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "ORDER")
+@Table(name = "PURCHASE")
 
-public class Order {
+public class Purchase {
 
     @Id
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "CLIENT", nullable = false)
     private String client;
@@ -20,13 +21,13 @@ public class Order {
     private Date date;
     @Column(name = "Adress")
     private String adress;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ORDER")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "PURCHASE")
     private Set<OrderLine> orderLines = new HashSet<OrderLine>();
 
-    public Order() {
+    public Purchase() {
     }
 
-    public Order(Integer orderId, String client, Date date, String adress) {
+    public Purchase(Integer orderId, String client, Date date, String adress) {
         this.id = orderId;
         this.client = client;
         this.date = date;
@@ -73,4 +74,3 @@ public class Order {
         this.orderLines = orderLines;
     }
 }
-

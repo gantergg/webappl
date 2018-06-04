@@ -12,14 +12,15 @@ public class OrderLine {
 
     @Id
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "COUNT")
     private Integer count;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "ORDERLINE")
     private Set<Meds> meds = new HashSet<Meds>();
     @ManyToOne
-    @JoinColumn(name = "ORDER_ID")
-    private Order order;
+    @JoinColumn(name = "PURCHASE_ID")
+    private Purchase purchase;
 
     public OrderLine() {
     }
@@ -45,19 +46,20 @@ public class OrderLine {
         this.count = count;
     }
 
-    public Set<Meds> getItems() {
-        return meds;
-    }
-
     public void setItems(Set<Meds> items) {
         this.meds = items;
     }
 
-    public Order getOrder() {
-        return order;
+    public Set<Meds> getItems() {
+        return meds;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+
+    public Purchase getPurchase() {
+        return purchase;
+    }
+
+    public void setPurchase(Purchase purchase) {
+        this.purchase = purchase;
     }
 }
