@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+/*  @Entity
 @Table(name = "PURCHASE")
 
 public class Purchase {
@@ -73,4 +73,4 @@ public class Purchase {
     public void setOrderLines(Set<OrderLine> orderLines) {
         this.orderLines = orderLines;
     }
-}
+}  */

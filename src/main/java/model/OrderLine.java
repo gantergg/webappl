@@ -6,7 +6,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 
-@Entity
+/*  @Entity
 @Table(name = "ORDERLINE")
 public class OrderLine {
 
@@ -17,7 +17,7 @@ public class OrderLine {
     @Column(name = "COUNT")
     private Integer count;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "ORDERLINE")
-    private Set<Meds> meds = new HashSet<Meds>();
+    private Set<Med> meds = new HashSet<Med>();
     @ManyToOne
     @JoinColumn(name = "PURCHASE_ID")
     private Purchase purchase;
@@ -46,11 +46,11 @@ public class OrderLine {
         this.count = count;
     }
 
-    public void setItems(Set<Meds> items) {
+    public void setItems(Set<Med> items) {
         this.meds = items;
     }
 
-    public Set<Meds> getItems() {
+    public Set<Med> getItems() {
         return meds;
     }
 
@@ -62,4 +62,4 @@ public class OrderLine {
     public void setPurchase(Purchase purchase) {
         this.purchase = purchase;
     }
-}
+} */
